@@ -6,6 +6,17 @@
   "name": {{ site.Title }},
   "url": {{ site.BaseURL }},
   "description": {{ site.Params.description | plainify | truncate 180 }},
+  "publisher": {
+    "@type": "Person",
+    "name": {{ site.Params.schema.publisherName | default site.Params.author }},
+    "url": {{ site.BaseURL }},
+    "image": {{ site.Params.schema.image | absURL }}
+    {{- with site.Params.schema.sameAs }},
+    "sameAs": [
+      {{- range $i, $e := . }}{{ if $i }}, {{ end }}{{ $e }}{{ end }}
+    ]
+    {{- end }}
+  },
   "potentialAction": {
     "@type": "SearchAction",
     "target": {
@@ -14,6 +25,20 @@
     },
     "query-input": "required name=search_term_string"
   }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": {{ site.Params.schema.publisherName | default site.Params.author }},
+  "url": {{ site.BaseURL }},
+  "image": {{ site.Params.schema.image | absURL }}
+  {{- with site.Params.schema.sameAs }},
+  "sameAs": [
+    {{- range $i, $e := . }}{{ if $i }}, {{ end }}{{ $e }}{{ end }}
+  ]
+  {{- end }}
 }
 </script>
 {{- else if (or .IsPage .IsSection) }}
@@ -93,21 +118,17 @@
   "datePublished": {{ .PublishDate }},
   "dateModified": {{ .Lastmod }},
   {{- with (.Params.author | default site.Params.author) }}
-  "author":
-    {{- if (or (eq (printf "%T" .) "[]string") (eq (printf "%T" .) "[]interface {}")) -}}
-  [{{- range $i, $v := . -}}
-  {{- if $i }}, {{end -}}
-  {
+  "author": {
     "@type": "Person",
-    "name": {{ $v }}
-  }
-  {{- end }}],
-    {{- else -}}
-  {
-    "@type": "Person",
-    "name": {{ . }}
+    "name": {{ . }},
+    "url": {{ site.BaseURL }},
+    "image": {{ site.Params.schema.image | absURL }}
+    {{- with site.Params.schema.sameAs }},
+    "sameAs": [
+      {{- range $i, $e := . }}{{ if $i }}, {{ end }}{{ $e }}{{ end }}
+    ]
+    {{- end }}
   },
-    {{- end -}}
   {{- end }}
   "mainEntityOfPage": {
     "@type": "WebPage",
@@ -116,7 +137,8 @@
   "publisher": {
     "@type": "{{ site.Params.schema.publisherType | default "Person" }}",
     "name": {{ site.Params.schema.publisherName | default site.Title }},
-    "url": {{ site.BaseURL }}
+    "url": {{ site.BaseURL }},
+    "image": {{ site.Params.schema.image | absURL }}
   }
 }
 </script>

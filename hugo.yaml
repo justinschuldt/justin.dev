@@ -23,7 +23,7 @@ params:
   env: production
   title: "justin.dev"
   description: "Technical reference for software engineering — code snippets, write-ups, and notes."
-  author: "Justin"
+  author: "Justin Schuldt"
   DateFormat: "2006-01-02"
   defaultTheme: auto
   disableThemeToggle: false
@@ -46,8 +46,17 @@ params:
   socialIcons:
     - name: github
       url: "https://github.com/justinschuldt"
+    - name: x-twitter
+      url: "https://x.com/justinschuldt"
+    - name: youtube
+      url: "https://www.youtube.com/@maker.justin"
+    - name: instagram
+      url: "https://www.instagram.com/maker.justin.dev"
     - name: rss
       url: "/index.xml"
+
+  images:
+    - "/images/headshot.jpg"
 
   fuseOpts:
     isCaseSensitive: false
@@ -74,8 +83,14 @@ params:
 
   schema:
     publisherType: "Person"
-    publisherName: "Justin"
+    publisherName: "Justin Schuldt"
     siteURL: "https://justin.dev/"
+    image: "/images/headshot.jpg"
+    sameAs:
+      - "https://github.com/justinschuldt"
+      - "https://x.com/justinschuldt"
+      - "https://www.youtube.com/@maker.justin"
+      - "https://www.instagram.com/maker.justin.dev"
 
 markup:
   highlight:
