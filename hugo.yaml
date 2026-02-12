@@ -1,0 +1,110 @@
+baseURL: "https://justin.dev/"
+languageCode: en-us
+title: "justin.dev"
+theme: PaperMod
+pagination:
+  pagerSize: 20
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+params:
+  env: production
+  title: "justin.dev"
+  description: "Technical reference for software engineering — code snippets, write-ups, and notes."
+  author: "Justin"
+  DateFormat: "2006-01-02"
+  defaultTheme: auto
+  disableThemeToggle: false
+
+  ShowReadingTime: false
+  ShowShareButtons: false
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: false
+  ShowCodeCopyButtons: true
+  ShowWordCount: false
+  ShowRssButtonInSectionTermList: true
+  ShowAllPagesInArchive: true
+  ShowToc: true
+  TocOpen: false
+
+  homeInfoParams:
+    Title: "justin.dev"
+    Content: "Technical reference for software engineering — code snippets, write-ups, and notes."
+
+  socialIcons:
+    - name: github
+      url: "https://github.com/justinschuldt"
+    - name: rss
+      url: "/index.xml"
+
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    keys:
+      - title
+      - permalink
+      - summary
+      - content
+
+  mainSections:
+    - posts
+    - snippets
+
+  assets:
+    favicon: "/favicon.ico"
+    favicon16x16: "/favicon-16x16.png"
+    favicon32x32: "/favicon-32x32.png"
+    apple_touch_icon: "/apple-touch-icon.png"
+
+  schema:
+    publisherType: "Person"
+    publisherName: "Justin"
+    siteURL: "https://justin.dev/"
+
+markup:
+  highlight:
+    codeFences: true
+    guessSyntax: false
+    lineNos: false
+    lineNumbersInTable: true
+    noClasses: true
+    style: dracula
+    tabWidth: 4
+  goldmark:
+    renderer:
+      unsafe: false
+    extensions:
+      footnote:
+        enable: true
+  tableOfContents:
+    startLevel: 2
+    endLevel: 4
+    ordered: false
+
+taxonomies:
+  tag: tags
+  category: categories
+  series: series
+
+menu:
+  main: []
+
+permalinks:
+  posts: "/posts/:slug/"
+  snippets: "/snippets/:slug/"
