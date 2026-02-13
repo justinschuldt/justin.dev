@@ -22,7 +22,7 @@ minify:
 params:
   env: production
   title: "justin.dev"
-  description: "Technical reference for software engineering — code snippets, write-ups, and notes."
+  description: "Mostly nerd things — code snippets, project notes, HomeAssistant stuff, etc."
   author: "Justin Schuldt"
   DateFormat: "2006-01-02"
   defaultTheme: auto
@@ -41,7 +41,7 @@ params:
 
   homeInfoParams:
     Title: "justin.dev"
-    Content: "Technical reference for software engineering — code snippets, write-ups, and notes."
+    Content: "Mostly nerd things — code snippets, project notes, HomeAssistant stuff, etc."
 
   socialIcons:
     - name: github
